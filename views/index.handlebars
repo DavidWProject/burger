@@ -1,0 +1,71 @@
+<div class="row">
+
+<div class="text-center">
+  <img src="https://ubisafe.org/images/hamburger-drawing-1.png" class="rounded" alt="Hamburger" style="max-width: 300px; max-height: 300px">
+</div>
+
+</div>
+
+<div class="row text-center">
+
+    
+
+  <div class="col-lg-6">
+    <hr class="my-4">
+    <h2>Burgers that have not been Eaten yet!</h2>
+  </div>
+
+  <div class="col-lg-6">
+    <hr class="my-4">
+    <h2>Devoured Burgers!</h2>
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-lg-6">
+    <ul>
+      {{#each burgers}} {{#unless devoured}} {{> burgers/burger-block devour=true}} {{/unless}} {{/each}}
+    </ul>
+  </div>
+
+  <div class="col-lg-6">
+    <ul>
+      {{#each burgers}} {{#if devoured}} {{> burgers/burger-block devour=false}} {{/if}} {{/each}}
+    </ul>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12 text-center">
+    <h2>Add a Burger</h2>
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-lg-12 text-center">
+    <form class="create-form">
+
+      <div class="form-group">
+        <label for="ca">Burger Name:</label>
+        <input type="text" id="ca" name="name">
+      </div>
+
+      <div class="form-group">
+        <label style="display: none" for="devoured">Devoured?</label>
+        <br>
+        <input style="display: none" type="radio" name="devoured" value="1"> 
+        <br>
+        <input style="display: none" type="radio" name="devoured" value="0" checked> 
+      </div>
+
+      <button type="submit">Add Burger</button>
+    </form>
+
+  </div>
+
+</div>
